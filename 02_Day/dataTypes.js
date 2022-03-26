@@ -112,4 +112,4 @@ let total = Number(salary) + Number(bonus) + Number(course);
 
 console.log(total);
 
-//Done Day 2
+//Done Day 02

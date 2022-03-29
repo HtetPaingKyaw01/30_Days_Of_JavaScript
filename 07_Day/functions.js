@@ -125,3 +125,650 @@ function checkSeason(x){
 };
 
 console.log('This season is ' + checkSeason('September') + '.');
+
+function findMax(a,b,c){
+    return Math.max(a,b,c);
+}
+
+console.log(findMax(0,-10,-2));
+
+// Exercises: Level 2
+
+function printArray(ds){
+    for(d of ds){
+        console.log(d);
+    }
+}
+
+let e = [1,2,7,4,6,77,8];
+
+printArray(e);
+
+let date = new Date;
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let hour = date.getHours();
+let minute = date.getMinutes();
+
+function showDateTime(){
+    let a = day < 10 ? `0${day}` : `${day}`;
+    let b = month < 10 ? `0${month}` : `${month}`;
+    let c = hour < 10 ? `0${hour}` : `${hour}`;
+    let d = minute < 10 ? `0${minute}` : `${minute}`;
+    
+    let time = a + '/' + b + '/' + year + ' ' + c + ':' + d;
+    
+    console.log(time);
+}
+
+showDateTime();
+
+function swapValues(a,b){
+    let x = b;
+    let y = a;
+    console.log(x,y);
+}
+
+swapValues(3,4);
+
+function reverseArray(a){
+    let b = [];
+    for(let i = a.length-1;i >= 0;i--){
+        b.push(a[i]);
+    };
+    console.log(b);
+    return b;
+};
+
+reverseArray([1,3,4,5,6,7,8]);
+
+function capitalizeArray(as){
+    let b = [];
+    for(a of as){
+        b.push(a[0].toUpperCase() + a.slice(1));
+    };
+    console.log(b);
+}
+
+let names = ['htet','paing','kyaw','win','war','htoo'];
+
+capitalizeArray(names);
+
+let b = [];
+
+function addItem(a){
+    b.push(a);
+    console.log(b);
+    return b;
+};
+
+addItem('apple');
+addItem('orange');
+addItem(names[0]);
+
+function removeItem(a){
+    a.pop();
+    console.log(a);
+};
+
+removeItem(names);
+removeItem(names);
+
+let numbers = [1,3,5,6,8,65,4,56,34,5,2,45,67,543,5,7,56,10];
+
+function sumOfNumbers(as){
+    let b = 0;
+    for(a of as){
+        b = b + a;
+    }
+    console.log(b);
+}
+
+sumOfNumbers(numbers);
+
+function sumOfOdds(as){
+    let b = 0;
+    for(a of as){
+        if( a % 2 !== 0){
+            b = b + a;
+        };
+    };
+    console.log(b);
+};
+
+sumOfOdds(numbers);
+
+function sumOfEvens(as){
+    let b = 0;
+    for(a of as){
+        if( a % 2 == 0 ){
+            b = b + a;
+        };
+    };
+    console.log(b);
+};
+
+sumOfEvens(numbers);
+
+function evensAndOdds(as){
+    let b = [];
+    let c = [];
+    for(a of as){
+        if( a % 2 == 0 ){
+            b.push(a);
+        };
+        if( a % 2 !== 0 ){
+            c.push(a);
+        };
+    }
+    console.log('The number of evens are ' + b.length);
+    console.log('The number of odds are ' + c.length);
+};
+
+evensAndOdds(numbers);
+
+function z(){
+    let a = 0;
+    for(let i = 0;i<arguments.length;i++){
+        a = a + arguments[i];
+    };
+    console.log(a);
+};
+
+z(1,3,5,7,9,13,5,-3);
+
+function randomUserIp(){
+    let b = [];
+    for(let i = 0;i < 4;i++){
+        let a = Math.ceil(Math.random()*255);
+        b.push(a);
+    }
+    let c = b.join('.');
+    console.log(c);
+};
+
+randomUserIp();
+
+function randomMacAddress(){
+    let b = [];
+    for(let i = 0;i < 6;i++){
+        let a = (Math.random() * 100).toString(36).substring(7).slice(2,4);
+        b.push(a);
+    }
+    let c = b.join(':');
+    console.log(c);
+};
+
+randomMacAddress();
+
+function randomHexaNumberGenerator(){
+    let a = (Math.random() * 100).toString(36).substring(2).slice(2,8);
+    let b = `#${a}`;
+    console.log(b);
+}
+
+randomHexaNumberGenerator();
+
+function userIdGenerator(){
+    let a = (Math.random() * 100).toString(36).substring(2).slice(2,9);
+    let b = a.toUpperCase();
+    console.log(b);
+};
+
+userIdGenerator();
+
+// Exercises: Level 3
+
+function rgbColorGenerator(){
+    let b = [];
+    for(let i = 0;i < 3;i++){
+        let a = Math.floor(Math.random() * 255);
+        b.push(a);
+    }
+    let c = `rgb(${b[0]},${b[1]},${b[2]})`;
+    console.log(c);
+}
+
+rgbColorGenerator();
+
+let hexaColors = [];
+
+function arrayOfHexaColors(){
+    let c = Math.ceil(Math.random() * 10);
+    for(let i = 0;i < c;i++){
+        let a = (Math.random() * 100).toString(16).substring(2).slice(2,8).toUpperCase();
+        let b = `#${a}`;
+        hexaColors.push(b);
+    }
+    console.log(hexaColors);
+}
+
+arrayOfHexaColors();
+
+let rgbColors = [];
+
+function arrayOfRgbColors(){
+    let b = [];
+    let d = Math.ceil(Math.random() * 10);
+    for(let i = 0;i < d;i++){
+        for(let i = 0;i < 3;i++){
+            let a = Math.floor(Math.random() * 255);
+            b.push(a);
+        }
+        let c = `rgb(${b[0]},${b[1]},${b[2]})`;
+        rgbColors.push(c);
+    }
+    
+    console.log(rgbColors);
+}
+
+arrayOfRgbColors();
+
+function convertHexaToRgb(a){
+    let b = a.slice(1,7).match(/.{1,2}/g);
+    let c = [
+        parseInt(b[0],16),
+        parseInt(b[1],16),
+        parseInt(b[2],16)
+    ];
+    let d = `rgb(${c[0]},${c[1]},${c[2]})`;
+    console.log(d);
+}
+
+convertHexaToRgb(hexaColors[0]);
+
+function rgbToHexa(a){
+    let b = a.slice(4,20);
+    let c = b.slice(0,b.length-1);
+    let d = c.split(',');
+    let e = [
+        Number(d[0]).toString(16).toUpperCase(),
+        Number(d[1]).toString(16).toUpperCase(),
+        Number(d[2]).toString(16).toUpperCase()
+    ];
+    let f = `#${e[0]}${e[1]}${e[2]}`;
+    console.log(f);
+}
+
+rgbToHexa(rgbColors[0]);
+
+console.log('\n');
+
+function generateColors(a,b){
+    if( a.toLowerCase() === 'rgb' ){
+        let f = [];
+        for(let i = 0;i < b;i++){
+            let d = [];
+            for(let i = 0;i < 3;i++){
+                let c = Math.floor(Math.random() * 255);
+                d.push(c);
+            }
+            let e = `rgb(${d[0]},${d[1]},${d[2]})`;
+            f.push(e);
+        }
+        console.log(f);
+    }else if( a.toLowerCase() === 'hexa' ){
+        let k = [];
+        for(let j = 0;j < b;j++){
+            let g = (Math.random() * 100).toString(16).substring(2).slice(2,8);
+            let h = `#${g}`;
+            k.push(h);
+        }
+        console.log(k);
+    }else{
+        console.log('Please correct arguments');
+    };    
+}
+
+generateColors('rgb',4);
+
+function shuffleArray(a){
+    
+    let c = [];
+    for(let i = 0;i < a.length;i++){
+        let b = Math.floor(Math.random() * a.length);
+        let e = a[i];
+        a[i] = a[b];
+        a[b] = e;
+        
+    };
+    console.log(a);
+}
+
+shuffleArray(names);
+
+function factorial(a){
+    let b;
+    let c = [a];
+    for(let i = 1;i < a;i++){
+        b = (a-i);
+        c.push(b);
+    };
+    let d = c.join('*');
+    console.log(eval(d));
+};
+
+factorial(6);
+
+function isEmpty(a){
+    if( a == undefined ){
+        console.log('It is empty');
+    }else{
+        console.log(a);
+    }
+}
+
+isEmpty('a');
+
+function sum(){
+    let a = 0;
+    for(let i = 0;i < arguments.length;i++){
+        a = a + arguments[i];
+    }
+    console.log(a);
+}
+
+sum(2,1,2);
+
+function sumOfArrayItem(as){
+    let sum = 0;
+    for(a of as){
+        if(typeof(a) == 'number'){
+            sum = sum + a;
+        }
+    }
+    if(typeof(a) == 'number'){
+        console.log(sum);
+    }else{
+        console.log('Please enter number only!');
+    };
+};
+
+sumOfArrayItem(names);
+
+let fruits = ['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot'];
+
+function modifyArray(a){
+    let b = [];
+    for(let i = 0;i < a.length;i++){
+        if( a[4] ){
+            if( a[i] == a[4] ){
+                b.push(a[i].toUpperCase());
+            }else{
+                b.push(a[i]);
+            }           
+        }
+    };
+    
+    if(a[4]){
+        console.log(b);
+    }else{
+        console.log("Not Found");
+    };
+};
+
+modifyArray(fruits);
+
+function isPrime(a){
+    let b;
+    if( a > 1 ){
+        for(let i = 2;i < a;i++){
+            if(a % i == 0){
+                b = i;     
+            };
+        };
+    };
+    if(b){
+        console.log(a + ' is not a prime number.');
+    }else{
+        console.log(a + ' is a prime number.');
+    }
+};
+
+isPrime(6);
+
+function isUnique(as){
+    let b = [];
+    for(a of as){
+        if(!(b.includes(a))){
+            b.push(a);
+        }
+    }
+    if(b.length == as.length){
+        console.log('All items are unique.');
+    }else{
+        console.log('This array is not unique.');
+    }
+}
+
+isUnique(fruits);
+
+
+
+let xxx = [0,1,2,3,4,5,6,7,8,9]
+
+function zzz(a){
+    
+    let c = [];
+    let i = 0;
+    while(i < 7){
+        let b = Math.floor(Math.random() * 10);
+        if( !(c.includes(a[b])) ){
+            c.push(a[b]);
+            i++;
+        };        
+    };
+    console.log(c);
+}
+
+zzz(xxx);
+
+
+const countries = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombi',
+    'Comoros',
+    'Congo (Brazzaville)',
+    'Congo',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (Timor Timur)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia and Montenegro',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+];
+
+function reverseCountries(a){
+    let b = [];
+    for(let i = a.length;i >= 0;i--){
+        b.push(a[i]);
+    };
+    console.log(b);
+};
+
+reverseCountries(countries)
+
+// Done Day 07 Complete

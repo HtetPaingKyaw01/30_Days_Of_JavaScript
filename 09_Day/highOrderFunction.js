@@ -398,36 +398,7 @@ let v = getLastTenCountries();
 
 console.log(v);
 
-// let x = [];
 
-// let w = aaas.map(aaa => {
-//     return aaa[0];
-// });
-
-// let z = 65;
-
-// let y = w.map((element,index) => {
-
-//     if(element.charCodeAt() == z ){
-
-//     }
-// });
-
-// console.log(w);
-
-// let x = [];
-
-// let w = aaas.map(element => {
-//     return element[0];
-// });
-
-// let y = w.reduce((a,b) => {
-//     if(a == b){
-//         x.push(b);
-//     };
-// });
-
-// console.log(w);
 
 // Exercises: Level 3
 
@@ -2445,24 +2416,201 @@ const zzz = [
     }
 ]
 
-// let bbb = [];
+let bbb = [];
 
-// let yyy = zzz.map(e => {
-//     return e.capital;
-// });
+for(zz of zzz){
+  bbb.push(zz.languages);
+};
 
-// console.log(yyy.sort());
+console.log(bbb);
 
-// let yyy = zzz.map(e => {
-//     return e.languages;
-// });
+let ccc = [];
 
-// let www = [];
+for(bb of bbb){
+  for(let i = 0;i < bb.length;i++){
+    ccc.push(bb[i]);
+  };
+};
 
-// let xxx = yyy.map(e=>{
-//     let vvv = e.map(el => {
-//         www.push(el);
-//     });
-// });
+console.log(ccc);
 
-// console.log(www);
+let ddd = new Set(ccc);
+
+let fff = [];
+
+for(dd of ddd){
+  let eee = ccc.filter(el => {
+    return el === dd;
+  });
+  console.log(eee);
+  fff.push({language: dd,count: eee.length});
+};
+
+console.log(fff);
+
+let ggg;
+let jjj = [];
+
+for(let j = 0;j < 10;j++){
+  ggg = 0;
+  for(let i=0;i < fff.length;i++){    
+    if(fff[i].count > ggg ){
+      ggg = fff[i].count;
+    }
+  }
+  let iii = fff.filter(el => {
+    return el.count == ggg;
+  });
+  for(let k = 0;k < iii.length;k++){
+    jjj.push(iii[k]);
+  }
+  let lll = fff.filter(element => {
+    return element.count !== ggg;
+  });
+  fff = lll;
+};
+
+let hhh = jjj.slice(0,10);
+
+console.log(hhh);
+
+let mmm = [];
+
+for(zz of zzz){
+  mmm.push({country: zz.name,population: zz.population});
+};
+
+let nnn;
+let ooo = [];
+
+for(let i = 0;i < 10;i++){
+  nnn = 0;
+  for(let j = 0;j < mmm.length;j++){
+    if(mmm[j].population > nnn){
+      nnn = mmm[j].population;
+    }
+  };
+  let ppp = mmm.filter(el => {
+    return el.population == nnn;
+  });
+  for(let k = 0;k < ppp.length;k++){
+    ooo.push(ppp[k]);
+  };
+  let qqq = mmm.filter(ele => {
+    return ele.population !== nnn;
+  });
+  mmm = qqq;
+};
+
+console.log(ooo);
+
+const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26];
+
+let statistics = {
+  count : function(){
+    return ages.length;
+  },
+  sum : function(){
+    let a = 0;
+    for(age of ages){
+      a = a + age;
+    }
+    return a;
+  },
+  min : function(){
+    let b = ages.sort();
+    return b[0];
+  },
+  max : function(){
+    let c = ages.sort();
+    return c[c.length-1];
+  },
+  range : function(){
+    return this.max() - this.min();
+  },
+  mean : function(){
+    return Math.ceil(this.sum() / this.count());
+  },
+  median : function(){
+    return Math.floor(this.sum() / this.count());
+  },
+  mode : function(){
+    let ds = new Set(ages);
+    let f = 0;
+    let g;
+    for(d of ds){
+      let e = ages.filter(el => el === d);
+      if(e.length > f){
+        f = e.length;
+        g = e;
+      };
+    };
+    console.log(g);
+    return `{mode : ${g[0]}, count : ${g.length}}`;
+  },
+  var : function(){
+    let h;
+    let abcs = [];
+    let k = 0;
+    let m = this.sum() / this.count();
+    for(age of ages){
+      h = (age - m) ** 2;
+      abcs.push(h);
+    };
+    for(abc of abcs){
+      k = k + abc;
+    };
+    let l = k / ages.length;
+    return l.toFixed(1);
+  },
+  std : function(){
+    let n = this.sum() / this.count();
+    let o;
+    let ps = [];
+    let q;
+    let rs = [];
+    let t = 0;
+    for(age of ages){
+      o = n - age;
+      ps.push(o);
+    };
+    for(p of ps){
+      q = p ** 2;
+      rs.push(q);
+    };
+    for(r of rs){
+      t = t + r;
+    }
+    let u = t / (ages.length - 1);
+    let v = Math.sqrt(u)
+    return v.toFixed(2);
+  },
+  describe : function(){
+    return `Count : ${this.count()}\nSum : ${this.sum()}\nMin : ${this.min()}\nMax : ${this.max()}\nRange : ${this.range()}\nMean : ${this.mean()}\nMedian : ${this.median()}\nMode : ${this.mode()}\nVariance : ${this.var()}\nStandard Deviation : ${this.std()}`;  
+  }
+};
+
+console.log(statistics.count());
+console.log(statistics.sum());
+console.log(statistics.min());
+console.log(statistics.max());
+console.log(statistics.range());
+console.log(statistics.mean());
+console.log(statistics.median());
+console.log(statistics.mode());
+console.log(statistics.var());
+console.log(statistics.std());
+console.log(statistics.describe());
+
+// Done Day 09 Complete
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+
+.container{
+    width: 1000px;
+    margin: auto;
+}
+
+.xx{
+    display: inline-block;
+}
+
+.text{
+    height: 36.8px;
+}
+
+
+.box{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+

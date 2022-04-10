@@ -197,6 +197,8 @@ const asabenehChallenges2020 = {
     ]
 };
 
+document.body.style.fontFamily = 'Arial, Helvetica, sans-serif';
+
 let a = document.createElement('div');
 let b = document.createElement('h1');
 let c = document.createElement('span');
@@ -378,7 +380,7 @@ t.style.display = 'flex';
 t.style.justifyContent = 'center';
 v.style.display = 'flex';
 v.style.justifyContent = 'center';
-
+t.style.margin = '0px 0px 50px 0px';
 
 for(socialLink of asabenehChallenges2020.author.socialLinks){
     if(socialLink.fontawesomeIcon !== ''){
@@ -405,20 +407,130 @@ bb.style.textAlign = 'center';
 aa.appendChild(bb);
 document.body.appendChild(aa);
 
+
+
 let cc = document.createElement('div');
 let dd = document.createElement('div');
+
+cc.style.display = 'flex';
+cc.style.justifyContent = 'center';
+cc.style.margin = '50px 0px';
+dd.style.display = 'flex';
+dd.style.justifyContent = 'space-between';
+dd.style.width = '700px';
+
+// Titles box start
 let ee = document.createElement('div');
-let ff = document.createElement('div');
-let gg = document.createElement('div');
+let ss = document.createElement('div');
+let ff = document.createElement('span');
+ff.innerText = 'Titles';
+ff.style.fontSize = '20px';
+ff.style.fontWeight = 'bold';
+ee.appendChild(ff);
 
-let jj = document.createElement('div');
-let hh = document.createElement('span');
-let ii = document.createElement('h4');
+for(title of asabenehChallenges2020.author.titles){
+  let gg = document.createElement('span');
+  gg.innerText = title[0] + title[1];
+  gg.style.display = 'block';
+  ss.appendChild(gg);
+}
 
-
-
+ss.style.margin = '5px 0px';
+ee.appendChild(ss);
 dd.appendChild(ee);
-dd.appendChild(ff);
-dd.appendChild(gg);
+// Titles box end
+
+// skills box start
+let mm = document.createElement('div');
+let tt = document.createElement('div');
+let oo = document.createElement('span');
+oo.innerText = 'Skills';
+oo.style.fontSize = '20px';
+oo.style.fontWeight = 'bold';
+mm.appendChild(oo);
+
+for(skill of asabenehChallenges2020.author.skills){
+  let pp = document.createElement('span');
+  pp.innerText = skill;
+  pp.style.display = 'block';
+  tt.appendChild(pp);
+}
+
+tt.style.margin = '5px 0px';
+mm.appendChild(tt);
+dd.appendChild(mm);
+// skills box end
+
+// Qualifications box start
+let nn = document.createElement('div');
+let uu = document.createElement('div');
+let qq = document.createElement('span');
+qq.innerText = 'Qualifications';
+qq.style.fontSize = '20px';
+qq.style.fontWeight = 'bold';
+nn.appendChild(qq);
+
+for(qualification of asabenehChallenges2020.author.qualifications){
+  let rr = document.createElement('span');
+  rr.innerText = qualification;
+  rr.style.display = 'block';
+  uu.appendChild(rr);
+}
+
+uu.style.margin = '5px 0px';
+nn.appendChild(uu);
+dd.appendChild(nn);
+// Qualifications box end
+
 cc.appendChild(dd);
 document.body.appendChild(cc);
+
+// Keywords ***************
+
+let vv = document.createElement('div');
+let ww = document.createElement('div');
+
+vv.style.display = 'flex';
+vv.style.justifyContent = 'center';
+ww.style.width = '700px';
+
+// keywords title start
+let xx = document.createElement('span');
+xx.innerText = 'Keywords';
+xx.style.fontSize = '20px';
+xx.style.fontWeight = 'bold';
+xx.style.display = 'block';
+ww.appendChild(xx);
+// keywords title end
+
+// keywords box start
+let yy = document.createElement('div');
+yy.style.display = 'flex';
+yy.style.width = '700px';
+yy.style.flexWrap = 'wrap';
+yy.style.margin = '10px 0px 50px 0px'
+
+for(keyword of asabenehChallenges2020.keywords){
+  let zz = document.createElement('div');
+  let aaa = document.createElement('span');
+
+  aaa.innerText = '#' + keyword;
+  let bbb = '#' + Math.random().toString(16).substring(2,8);
+  zz.style.backgroundColor = bbb;
+  zz.style.padding = '10px 20px';
+  zz.style.borderRadius = '50px';
+  zz.style.margin = '3px 5px';
+
+  zz.appendChild(aaa);
+  yy.appendChild(zz);
+}
+
+ww.appendChild(yy);
+// keywords box end
+
+vv.appendChild(ww);
+document.body.appendChild(vv);
+
+// Keywords *****************
+
+// Done

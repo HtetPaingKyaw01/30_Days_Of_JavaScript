@@ -106,3 +106,5 @@ l.addEventListener('click', () => {
 
 n.appendChild(o);
 document.body.appendChild(n);
+
+// Done go to Exrcises2.js file

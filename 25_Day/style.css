@@ -30,10 +30,6 @@
     margin-top: 5px;
 }
 
-.title-span{
-    
-}
-
 .input-box{
     text-align: center;
     padding-bottom: 15px;
@@ -72,10 +68,6 @@
     background-color: #f0f0f0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 };
-
-.outputB{
-    
-}
 
 .show{
     display: block;

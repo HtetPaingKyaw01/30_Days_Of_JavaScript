@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-box{
+    background-color: #f0f0f0;
+    padding: 30px 0 20px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.title-text-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    color: #ffa500;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.title-span-box{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.title-span{
+    
+}
+
+.input-box{
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.btn-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 10px 0;
+}
+
+.btn{
+    background-color: #ffa500;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.btn-left{
+    margin-right: 5px;
+}
+
+.btn-right{
+    margin-left: 5px;
+}
+
+.btn-box-text{
+    margin: 10px;
+}
+
+.output-box{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    background-color: #f0f0f0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+};
+
+.outputB{
+    
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

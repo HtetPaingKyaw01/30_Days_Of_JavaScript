@@ -205,6 +205,7 @@ let btnLeft = document.querySelector('.btn-left');
 let btnCenter = document.querySelector('.btn-center');
 let btnA = document.querySelectorAll('.btnA');
 let input = document.querySelector('.input');
+let inputIcon = document.querySelector('.input-icon');
 
 function show1(){
     icon1.classList.add('show');
@@ -221,107 +222,12 @@ function show2(){
 }
 
 function removeActive(){
-    for(btna of btnA){
-        btna.classList.remove('active');
+    for(atna of btnA){
+        atna.classList.remove('active');
     };
 };
 
-input.addEventListener('input', el => {
-    let inputText = input.value;
-    if(btnLeft.classList.contains('active')){    
-        let startWithCountry = [];
-        for(country of countries){
-            if(country.toUpperCase().startsWith(inputText.toUpperCase())){      
-                startWithCountry.push(country);
-            }
-        };
-        outputBox.innerHTML = '';
-        for(country of startWithCountry){
-            let a = document.createElement('div'); 
-            let c = document.createElement('div');
-            let d = document.createElement('div'); 
-        
-            a.classList.add('placing');
-            c.classList.add('bg-color-placing');
-            d.style.position = 'relative';
-            d.style.textAlign = 'center';
-        
-            if(country.split(' ').length > 1){
-                let aa = country.split(' ');
-                for(let i = 0;i < aa.length;i++){
-                    let b = document.createElement('span');
-                    b.innerText = aa[i];
-                    b.classList.add('placing-text');
-                    b.style.display = 'block';
-                    d.appendChild(b);
-                }
-            }else{
-                let b = document.createElement('span');
-                b.innerText = country;
-                b.classList.add('placing-text');
-                d.appendChild(b);
-            }
-        
-            a.appendChild(c); 
-            a.appendChild(d);
-            outputBox.appendChild(a);
-        };
-    }
-
-    if(btnCenter.classList.contains('active')){
-        let searchAnyWord = [];
-        for(country of countries){
-            if(country.toUpperCase().match(inputText.toUpperCase())){
-                searchAnyWord.push(country);
-            };
-        };
-        outputBox.innerHTML = '';
-        for(country of searchAnyWord){
-            let a = document.createElement('div'); 
-            let c = document.createElement('div');
-            let d = document.createElement('div'); 
-        
-            a.classList.add('placing');
-            c.classList.add('bg-color-placing');
-            d.style.position = 'relative';
-            d.style.textAlign = 'center';
-        
-            if(country.split(' ').length > 1){
-                let aa = country.split(' ');
-                for(let i = 0;i < aa.length;i++){
-                    let b = document.createElement('span');
-                    b.innerText = aa[i];
-                    b.classList.add('placing-text');
-                    b.style.display = 'block';
-                    d.appendChild(b);
-                }
-            }else{
-                let b = document.createElement('span');
-                b.innerText = country;
-                b.classList.add('placing-text');
-                d.appendChild(b);
-            }
-        
-            a.appendChild(c); 
-            a.appendChild(d);
-            outputBox.appendChild(a);
-        };
-    };
-});
-
-btnLeft.addEventListener('click',() => {
-    removeActive();
-    btnLeft.classList.add('active');
-});
-
-btnCenter.addEventListener('click',() => {
-    removeActive();
-    btnCenter.classList.add('active');
-});
-
-icon1.addEventListener('click',() => {
-    removeActive();
-    icon2.classList.add('active');
+function ztoA(){
     let text = outputBox.innerText.split('\n');
 
     outputBox.innerHTML = '';
@@ -343,11 +249,11 @@ icon1.addEventListener('click',() => {
     
         if(country.split(' ').length > 1){
             let aa = country.split(' ');
+            let b = document.createElement('span');
             for(let i = 0;i < aa.length;i++){
-                let b = document.createElement('span');
-                b.innerText = aa[i];
+                b.innerText += aa[i] + '\t';
                 b.classList.add('placing-text');
-                b.style.display = 'block';
+                b.style.display = 'inline-block';
                 d.appendChild(b);
             }
         }else{
@@ -361,6 +267,130 @@ icon1.addEventListener('click',() => {
         a.appendChild(d);
         outputBox.appendChild(a);
     };
+}
+
+function btnLeftFunc(a){
+    let startWithCountry = [];
+    for(country of countries){
+        if(country.toUpperCase().startsWith(a.toUpperCase())){      
+            startWithCountry.push(country);
+        }
+    };
+    outputBox.innerHTML = '';
+    for(country of startWithCountry){
+        let a = document.createElement('div'); 
+        let c = document.createElement('div');
+        let d = document.createElement('div'); 
+    
+        a.classList.add('placing');
+        c.classList.add('bg-color-placing');
+        d.style.position = 'relative';
+        d.style.textAlign = 'center';
+    
+        if(country.split(' ').length > 1){
+            let aa = country.split(' ');
+            let b = document.createElement('span');
+            for(let i = 0;i < aa.length;i++){
+                b.innerText += aa[i] + '\t';
+                b.classList.add('placing-text');
+                b.style.display = 'inline-block';
+                d.appendChild(b);
+            }
+        }else{
+            let b = document.createElement('span');
+            b.innerText = country;
+            b.classList.add('placing-text');
+            d.appendChild(b);
+        }
+    
+        a.appendChild(c); 
+        a.appendChild(d);
+        outputBox.appendChild(a);
+    };
+    if(icon2.classList.contains('show')){
+        ztoA();
+    };
+}
+
+function btnCenterFunc(a){
+    let searchAnyWord = [];
+    for(country of countries){
+        if(country.toUpperCase().match(a.toUpperCase())){
+            searchAnyWord.push(country);
+        };
+    };
+    outputBox.innerHTML = '';
+    for(country of searchAnyWord){
+        let a = document.createElement('div'); 
+        let c = document.createElement('div');
+        let d = document.createElement('div'); 
+    
+        a.classList.add('placing');
+        c.classList.add('bg-color-placing');
+        d.style.position = 'relative';
+        d.style.textAlign = 'center';
+    
+        if(country.split(' ').length > 1){
+            let aa = country.split(' ');
+            let b = document.createElement('span');
+            for(let i = 0;i < aa.length;i++){
+                b.innerText += aa[i] + '\t';
+                b.classList.add('placing-text');
+                b.style.display = 'inline-block';
+                d.appendChild(b);
+            }
+        }else{
+            let b = document.createElement('span');
+            b.innerText = country;
+            b.classList.add('placing-text');
+            d.appendChild(b);
+        }
+    
+        a.appendChild(c); 
+        a.appendChild(d);
+        outputBox.appendChild(a);
+    };
+    if(icon2.classList.contains('show')){
+        ztoA();
+    };
+}
+
+input.addEventListener('input', el => {
+    let inputText = input.value;
+    if(btnLeft.classList.contains('active')){    
+        btnLeftFunc(inputText);
+    };
+
+    if(btnCenter.classList.contains('active')){
+        btnCenterFunc(inputText);
+    };
+});
+
+inputIcon.addEventListener('click', () => {
+    if(btnLeft.classList.contains('active')){
+        btnLeftFunc(input.value);
+    }
+
+    if(btnCenter.classList.contains('active')){
+        btnCenterFunc(input.value);
+    }
+});
+
+btnLeft.addEventListener('click',() => {
+    removeActive();
+    btnLeft.classList.add('active');
+});
+
+btnCenter.addEventListener('click',() => {
+    removeActive();
+    btnCenter.classList.add('active');
+});
+
+icon1.addEventListener('click',() => {
+    removeActive();
+    icon2.classList.add('active');
+    
+    ztoA();
 });
 
 icon2.addEventListener('click',() => {
@@ -386,11 +416,11 @@ icon2.addEventListener('click',() => {
     
         if(country.split(' ').length > 1){
             let aa = country.split(' ');
+            let b = document.createElement('span');
             for(let i = 0;i < aa.length;i++){
-                let b = document.createElement('span');
-                b.innerText = aa[i];
+                b.innerText += aa[i] + '\t';
                 b.classList.add('placing-text');
-                b.style.display = 'block';
+                b.style.display = 'inline-block';
                 d.appendChild(b);
             }
         }else{
@@ -418,11 +448,11 @@ for(country of countries){
 
     if(country.split(' ').length > 1){
         let aa = country.split(' ');
+        let b = document.createElement('span');
         for(let i = 0;i < aa.length;i++){
-            let b = document.createElement('span');
-            b.innerText = aa[i];
+            b.innerText += aa[i] + '\t';
             b.classList.add('placing-text');
-            b.style.display = 'block';
+            b.style.display = 'inline-block';
             d.appendChild(b);
         }
     }else{

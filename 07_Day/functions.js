@@ -1,4 +1,4 @@
-function fullName(){
+      function fullName(){
     let fullName = 'Htet Paing Kyaw';
     console.log(fullName);
 };
@@ -772,3 +772,21 @@ function reverseCountries(a){
 reverseCountries(countries)
 
 // Done Day 07 Complete
+
+
+function evensAndOdds(as){
+    let b = [];
+    let c = [];
+    for(let i = 0;i <= as;i++){
+        if( i % 2 == 0 ){
+            b.push(i);
+        };
+        if( i % 2 !== 0 ){
+            c.push(i);
+        };
+    }
+    return b.length + ',' + c.length;
+    
+};
+
+console.log(evensAndOdds(100));

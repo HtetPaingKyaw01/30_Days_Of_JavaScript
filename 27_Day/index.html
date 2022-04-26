@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<div class="item loader-container">
+	<i class="loader --7"></i>
+</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cssanimation.min.css">
+    <style>
+
+        .loader-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            background-color: white;
+            z-index: 4000;
+        }
+        .loader {
+			--color: #eddfde;
+			--size-mid: 6vmin;
+			--size-dot: 1.5vmin;
+			--size-bar: 0.4vmin;
+			--size-square: 3vmin;
+			
+			display: block;
+			position: relative;
+			width: 50%;
+			display: grid;
+			place-items: center;
+		}
+
+		.loader::before,
+		.loader::after {
+			content: '';
+			box-sizing: border-box;
+			position: absolute;
+		}
+
+		.loader.--7::before,
+		.loader.--7::after {
+			width: var(--size-square);
+			height: var(--size-square);
+			background-color: var(--color);
+		}
+
+		.loader.--7::before {
+			top: calc(50% - var(--size-square));
+			left: calc(50% - var(--size-square));
+			animation: loader-6 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+		}
+
+		.loader.--7::after {
+			top: 50%;
+			left: 50%;
+			animation: loader-7 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+		}
+
+		@keyframes loader-7 {
+			0%, 100% {
+				transform: none;
+			}
+			
+			25% {
+				transform: translateX(-100%);
+			}
+			
+			50% {
+				transform: translateX(-100%) translateY(-100%);
+			}
+			
+			75% {
+				transform: translateY(-100%);
+			}
+		}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="name">Htet Paing Kyaw</span>
+        <div class="highlight-box">
+            <span class="highlight1">📔</span>
+            <div class="highlight2">
+                <span>Content Creator</span>
+            </div>
+        </div>
+        <div class="text-box">
+            <p class="text">
+                I am Htet Paing Kyaw.I am a professional web designer and developer. Experience in the web design field for about 1 year. Expert in prototype, web designs, and fully responsive.I know HTML, CSS, JavaScript, Bootstrap and JQuery.Some mini projects are as below...
+            </p>
+        </div>
+        <div class="projects">
+            <a class="project project1" href="https://imaginative-croquembouche-af754a.netlify.app/" target="_blank">Calculate a weight of an object on a planet</a>
+            <a class="project project2" href="https://timely-fairy-ff9649.netlify.app/" target="_blank">World Countries Data Visualization 1</a>
+            <a class="project project3" href="https://delicate-beignet-5d3931.netlify.app/" target="_blank">World Countries Data Visualization 2</a>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./portfolio.js"></script>
+</body>
+</html>

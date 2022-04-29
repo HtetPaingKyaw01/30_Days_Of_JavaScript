@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Exercise1.css">
+</head>
+<body>
+    <div class="box">
+        <div class="title-box">
+            <h1 class="title">World Countries Data</h1>
+            <div class="title-info-box">
+                <span class="title-info">Currently, we have 250 countries</span>
+            </div>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input" placeholder="Search countries by name,city and languages">
+            <div class="btn-box">
+                <div class="name-btn btn">
+                    <span>Name</span>
+                    <div class="btnhover-icon-box">
+                        <i class="fa-solid fa-up-long show hide1"></i>
+                        <i class="fa-solid fa-down-long hide hide1"></i>
+                    </div>
+                </div>
+                <div class="capital-btn btn">
+                    <span>Capital</span>
+                    <div class="btnhover-icon-box">
+                        <i class="fa-solid fa-up-long show hide1"></i>
+                        <i class="fa-solid fa-down-long hide hide1"></i>
+                    </div>
+                </div>
+                <div class="population-btn btn">
+                    <span>Population</span>
+                    <div class="btnhover-icon-box">
+                        <i class="fa-solid fa-up-long show hide1"></i>
+                        <i class="fa-solid fa-down-long hide hide1"></i>
+                    </div>
+                </div>
+                <div class="chart-icon-box">
+                    <a href="#chart"><i class="fa-solid fa-chart-column fa-2x chart-icon"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="output-box">
+
+        </div>
+        <div class="chart-input-box">
+            <div class="btn2-box">
+                <div class="population-btn2 btn2">population</div>
+                <div class="languages-btn2 btn2">languages</div>
+            </div>
+            <div class="chart-input-text">
+                <span>10 most populated countries in the world</span>
+            </div>
+        </div>
+        <div class="chart-output-box" id="chart">
+
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./Exercise1.js"></script>
+</body>
+</html>

@@ -1673,10 +1673,6 @@ const countries = [
         'Southern Sotho',
         'Swati',
         'Tswana',
-        'Tsonga',
-        'Venda',
-        'Xhosa',
-        'Zulu'
       ],
       population: 55653654,
       flag: 'https://flagcdn.com/za.svg',
@@ -2018,6 +2014,7 @@ $('.btn').click( () => {
 });
 
 let outputBox = document.querySelector('.output-box');
+let outputs = countries;
 
 function outputCountries(arr){
     outputBox.innerHTML = '';
@@ -2029,6 +2026,7 @@ function outputCountries(arr){
         let capital = document.createElement('span');
         let languages = document.createElement('span');
         let languages2 = document.createElement('span');
+        let languages3 = document.createElement('span');
         let population = document.createElement('span');
     
         countryBox.style.display = 'inline-block';
@@ -2041,24 +2039,43 @@ function outputCountries(arr){
         countryFlagBox.style.height = '80px'
         countryFlagBox.style.boxShadow = 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px';
         countryName.innerText = country.name;
+        countryName.style.textAlign = 'center';
+        countryName.style.color = 'var(--primary)';
+        countryName.style.letterSpacing = '1px';
+        countryName.style.margin = '10px 0';
+        countryName.style.fontWeight = 'bold';
         capital.innerText = `Capital: ${country.capital}`;
     
         if(country.languages.length < 2){
             languages.innerText = `Languages: ${country.languages}`;
         }else{
             languages.innerText = `Languages: ${country.languages[0]},`;
-            for(language of country.languages){
-                languages2.innerText += language;
+            for(let i = 1;i < country.languages.length;i++){
+                if(i < 4){
+                  if(i == country.languages.length-1){
+                    languages2.innerText += country.languages[i];
+                  }else{
+                    languages2.innerText += country.languages[i] + ',';
+                  }
+                }else{
+                  if(i == country.languages.length-1){
+                    languages3.innerText += country.languages[i];
+                  }else{
+                    languages3.innerText += country.languages[i] + ',';
+                  }
+                }
             };
         };
     
         languages.style.display = 'block';
+        languages2.style.display = 'block';
         population.innerText = `Population: ${country.population}`;
         population.style.display = 'block';
         
         countryInfo.appendChild(capital);
         countryInfo.appendChild(languages);
         countryInfo.appendChild(languages2);
+        countryInfo.appendChild(languages3);
         countryInfo.appendChild(population);
         countryBox.appendChild(countryFlagBox);
         countryBox.appendChild(countryName);
@@ -2073,25 +2090,25 @@ outputCountries(countries);
 $('.name-btn').click( () => {
     if($('.name-btn .up-icon').hasClass('show')){
         let reverseCountries = [];
-        for(let i = countries.length-1;i >= 0;i--){
-            reverseCountries.push(countries[i]);
+        for(let i = outputs.length-1;i >= 0;i--){
+            reverseCountries.push(outputs[i]);
         };
         outputCountries(reverseCountries);
     }else{
-        outputCountries(countries);
+        outputCountries(outputs);
     }
 });
 
 $('.capital-btn').click( () => {
     if($('.capital-btn .up-icon').hasClass('show')){
         let capitalArr = [];
-        for(country of countries){
+        for(country of outputs){
             capitalArr.push(country.capital);
         }
         let capitalReverse = capitalArr.sort().reverse();
         let capitalReverseCountries = [];
         for(let i = 0;i < capitalReverse.length;i++){
-            for(country of countries){
+            for(country of outputs){
                 if(country.capital == capitalReverse[i]){
                     capitalReverseCountries.push(country);
                 };
@@ -2102,13 +2119,13 @@ $('.capital-btn').click( () => {
         outputCountries(capitalReverseCountries.slice(0,250));
     }else{
         let capitalArr = [];
-        for(country of countries){
+        for(country of outputs){
             capitalArr.push(country.capital);
         }
         let capitalSort = capitalArr.sort();
         let capitalSortCountries = [];
         for(let i = 0;i < capitalSort.length;i++){
-            for(country of countries){
+            for(country of outputs){
                 if(country.capital == capitalSort[i]){
                     capitalSortCountries.push(country);
                 };
@@ -2116,18 +2133,22 @@ $('.capital-btn').click( () => {
         };
         capitalSortCountries.splice(58,2);
         capitalSortCountries.splice(144,2);
-        outputCountries(capitalSortCountries.slice(20,270));
+        if(outputs.length == 250){
+          outputCountries(capitalSortCountries.slice(20,270));
+        }else{
+          outputCountries(capitalSortCountries.slice(0,250));
+        }
     }
 });
 
 $('.population-btn').click( () => {
     if($('.population-btn .up-icon').hasClass('show')){
         let populationArr = [];
-        for(country of countries){
+        for(country of outputs){
             populationArr.push(country.population);
         };
         let populationReverse = [];
-        for(let j = 0;j < countries.length;j++){
+        for(let j = 0;j < outputs.length;j++){
             let num = 0;
             for(population of populationArr){
                 if(population > num){
@@ -2140,7 +2161,7 @@ $('.population-btn').click( () => {
         }
         let populationReverseCountries = [];
         for(let i = 0;i < populationReverse.length;i++){
-            for(country of countries){
+            for(country of outputs){
                 if(populationReverse[i] == country.population){
                     populationReverseCountries.push(country);
                 };
@@ -2149,11 +2170,11 @@ $('.population-btn').click( () => {
         outputCountries(populationReverseCountries.slice(0,250));
     }else{
         let populationArr = [];
-        for(country of countries){
+        for(country of outputs){
             populationArr.push(country.population);
         };
         let populationSort = [];
-        for(let j = 0;j < countries.length;j++){
+        for(let j = 0;j < outputs.length;j++){
             let num = 1377422166;
             for(population of populationArr){
                 if(population <= num){
@@ -2166,7 +2187,7 @@ $('.population-btn').click( () => {
         }
         let populationSortCountries = [];
         for(let i = 0;i < populationSort.length;i++){
-            for(country of countries){
+            for(country of outputs){
                 if(populationSort[i] == country.population){
                     populationSortCountries.push(country);
                     console.log(i)
@@ -2175,4 +2196,86 @@ $('.population-btn').click( () => {
         };
         outputCountries(populationSortCountries.slice(0,250));
     }
+});
+
+$('.input').keyup( () => {
+  outputs = [];
+  let inputValue = $('.input').val();
+  for(country of countries){
+    if(country.name.toUpperCase().match(inputValue.toUpperCase()) || country.capital.toUpperCase().match(inputValue.toUpperCase())){
+      outputs.push(country);
+    }
+  };
+  outputCountries(outputs);
+  chartOutput2(outputs);
+})
+
+let worldPopulationArr = [];
+
+for(country of countries){
+  worldPopulationArr.push(country.population);
+};
+
+let totalPopulation = worldPopulationArr.reduce( (a,b) => {
+  return a + b;
+},0);
+
+let worldPopulation = [{name:'World',population:totalPopulation}]; 
+
+let chartBox = document.createElement('div');
+
+function chartOutput(arr){
+  for(country of arr){
+    let chartOutputBox = document.createElement('div');
+    let chartOutputCountry = document.createElement('span');
+    let chartOuter = document.createElement('div');
+    let chartInner = document.createElement('div');
+    let chartResult = document.createElement('span');
+    let percentage = (country.population / totalPopulation) * 100 ;
+
+    chartOutputBox.style.display = 'flex';
+    chartOutputBox.style.margin = '20px';
+    chartOutputCountry.innerText = country.name;
+    chartOutputCountry.style.width = '150px';
+    chartOutputCountry.style.display = 'flex';
+    chartOutputCountry.style.alignItems = 'center';
+    chartOuter.style.width = '700px'; 
+    chartOuter.style.height = '50px';
+    chartOuter.style.margin = '0 10px';
+    chartOuter.style.position = 'relative';
+    chartInner.style.width = `${percentage}%`;
+    chartInner.style.height = '50px';
+    chartInner.style.backgroundColor = 'var(--primary)';
+    chartResult.innerText = country.population;
+    chartResult.style.width = '100px';
+    chartResult.style.display = 'flex';
+    chartResult.style.alignItems = 'center';
+
+    chartOuter.appendChild(chartInner);
+    chartOutputBox.appendChild(chartOutputCountry);
+    chartOutputBox.appendChild(chartOuter);
+    chartOutputBox.appendChild(chartResult);
+    chartBox.appendChild(chartOutputBox);
+  }
+}
+
+$('.chart-output-box').append(chartBox);
+
+function chartOutput2(arr){
+  if($('.population-btn2').hasClass('active')){
+    chartBox.innerHTML = '';
+    chartOutput(worldPopulation);
+    chartOutput(arr);
+  }
+
+  if($('.languages-btn2').hasClass('active')){
+    console.log('a');
+  }
+}
+
+chartOutput2(outputs);
+
+$('.btn2').click( () => {
+  $('.btn2').toggleClass('active');
+  chartOutput2(outputs);
 });

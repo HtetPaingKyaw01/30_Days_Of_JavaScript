@@ -35,8 +35,15 @@
     margin-top: 5px;
 }
 
+.search-info-box{
+    color: var(--primary);
+    margin-top: 5px;
+    font-style: italic;
+}
+
 .title-info{
     color: var(--secondary);
+    display: block;
 }
 
 .input-box{
@@ -163,7 +170,7 @@
 
 }
 
-.chart-input-text{
+.chart-input-text-box{
     text-align: center;
     margin-top: 15px;
     color: var(--secondary);
@@ -175,4 +182,31 @@
     padding: 25px;
     display: flex;
     justify-content: center;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 25px 0;
+}
+
+.footer-box{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.developer{
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-icon-box{
+    cursor: pointer;
+}
+
+.footer-icon{
+    color: var(--primary);
 }

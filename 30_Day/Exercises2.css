@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+
+:root{
+    --primary : #f2a93b;
+    --successed : #21bf73;
+    --important : #e7f0fe;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    color: #4b4b4b;
+}
+
+.form-box{
+    margin: 10px;   display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.title{
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+}
+
+.first-name-box{
+    margin: 20px;
+}
+
+.first-name-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.first-name{
+    width: 500px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.first-name{
+    outline: none;
+}
+
+.last-name-box{
+    margin: 20px;
+}
+
+.last-name-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.last-name{
+    width: 500px;   
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.last-name:focus{
+    outline: none;
+}
+
+.email-box{
+    margin: 20px;
+}
+
+.email-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.email{
+    width: 500px;   
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.email:focus{
+    outline: none;
+}
+
+.password-box{
+    margin: 20px;
+}
+
+.password-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.password{
+    width: 500px;   
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.password:focus{
+    outline: none;
+}
+
+.phone-number-box{
+    margin: 20px;
+}
+
+.phone-number-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.phone-number{
+    width: 500px;   
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.phone-number:focus{
+    outline: none;
+}
+
+.your-bio-box{
+    margin: 20px;
+}
+
+.your-bio-label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.your-bio{
+    width: 500px;   
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.your-bio:focus{
+    outline: none;
+}
+
+.btn{
+    padding: 10px 35px;
+    background-color: #444444;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.btn-text{
+    color: #fff;
+}
+
+.noti{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

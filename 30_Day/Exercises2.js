@@ -1,4 +1,3 @@
-
 function validate(input){
     let inputValue = $(`.${input}`).val();
     let pattern;
@@ -13,16 +12,36 @@ function validate(input){
     }else if(input == 'password'){
         pattern = /^[A-Za-z0-9@\_-]{6,20}$/
     }else if(input == 'your-bio'){
-        pattern = /^[a-z-\_]{4,20}$/
+        pattern = /^[a-z-\s\_]{4,20}$/
     }
     let test = pattern.test(inputValue);
     
     if(test){
-        $(`.${input}`).css('border','2px solid var(--successed)');
-        $(`.${input}`).css('background-color','var(--important)');
+        $(`.${input}`).addClass('true');
         $(`.${input}-noti`).html('');
         $(`.${input}-noti`).css('padding','0');
+        let firstNameCheck = $('.first-name').hasClass('true');
+        let lastNameCheck = $('.last-name').hasClass('true');
+        let emailCheck = $('.email').hasClass('true');
+        let passwordCheck = $('.password').hasClass('true');
+        let phoneNumberCheck = $('.phone-number').hasClass('true');
+        let yourBioCheck = $('.your-bio').hasClass('true');
+        $(`.${input}`).css('border','2px solid var(--successed)');
+
+        if(firstNameCheck && lastNameCheck && emailCheck && passwordCheck && phoneNumberCheck && yourBioCheck){
+            $('.btn').css('background-color','var(--successed)');
+            $('.btn').css('border','1px solid var(--successed)');
+        }
+        if(input == 'email' || input == 'phone-number'){
+            $(`.${input}`).css('background-color','var(--important)');
+        }else{
+            $(`.${input}`).css('background-color','white');
+        }
+
     }else{
+        $('.btn').css('background-color','var(--fail)');
+        $('.btn').css('border','1px solid var(--fail)');
+        $(`.${input}`).removeClass('true');
         $(`.${input}`).css('border','1px solid black');
         $(`.${input}`).css('background-color','white');
         $(`.${input}-noti`).html('');
@@ -47,8 +66,6 @@ function validate(input){
 
         $(`.${input}-noti`).append(span);
     };
-    
-    console.log(check)
 };
 
 $('.phone-number').keyup( () => {
